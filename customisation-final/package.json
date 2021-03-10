@@ -1,0 +1,39 @@
+{
+  "name": "getting-started",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext ts,js,json --ignore-path .gitignore",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@datacamp/eslint-config": "^5.0.0",
+    "@datacamp/prettier-config": "^2.1.0",
+    "eslint": "^7.21.0",
+    "parcel-bundler": "1.12.3",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "^0.18.0",
+    "@codemirror/closebrackets": "^0.18.0",
+    "@codemirror/commands": "^0.18.0",
+    "@codemirror/comment": "^0.18.0",
+    "@codemirror/fold": "^0.18.0",
+    "@codemirror/gutter": "^0.18.0",
+    "@codemirror/highlight": "^0.18.3",
+    "@codemirror/history": "^0.18.0",
+    "@codemirror/lang-javascript": "^0.18.0",
+    "@codemirror/language": "^0.18.0",
+    "@codemirror/lint": "^0.18.0",
+    "@codemirror/matchbrackets": "^0.18.0",
+    "@codemirror/rectangular-selection": "^0.18.0",
+    "@codemirror/search": "^0.18.0",
+    "@codemirror/state": "^0.18.0",
+    "@codemirror/view": "^0.18.1"
+  }
+}
