@@ -1,0 +1,22 @@
+{
+  "name": "getting-started",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext ts,js,json --ignore-path .gitignore",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@datacamp/eslint-config": "^5.0.0",
+    "@datacamp/prettier-config": "^2.1.0",
+    "eslint": "^7.21.0",
+    "parcel-bundler": "1.12.3",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {}
+}
