@@ -4,7 +4,6 @@ import { defaultKeymap, defaultTabBinding } from '@codemirror/commands';
 import { commentKeymap } from '@codemirror/comment';
 import { foldGutter, foldKeymap } from '@codemirror/fold';
 import { lineNumbers } from '@codemirror/gutter';
-import { defaultHighlightStyle } from '@codemirror/highlight';
 import { history, historyKeymap } from '@codemirror/history';
 import { indentOnInput } from '@codemirror/language';
 import { lintKeymap } from '@codemirror/lint';
@@ -19,6 +18,7 @@ import {
   keymap,
 } from '@codemirror/view';
 
+import { customHighlightStyle } from './highlight';
 import { uppercaseKeybinding } from './uppercase';
 
 export const basicSetup = [
@@ -29,7 +29,7 @@ export const basicSetup = [
   drawSelection(),
   EditorState.allowMultipleSelections.of(true),
   indentOnInput(),
-  defaultHighlightStyle.fallback,
+  customHighlightStyle,
   bracketMatching(),
   closeBrackets(),
   autocompletion(),

@@ -112,6 +112,7 @@ export const basicSetup = [
     - Explain `return true`
 1. Create helper
 1. Register keybinding
+1. Show result
 
 ### Code
 Create keybinding:
@@ -163,4 +164,45 @@ keymap.of([
   // ...
   uppercaseKeybinding,
 ]),
+```
+
+## Syntax highlighting
+### Steps
+1. Install deps
+1. Create custom highlight style
+1. Register custom highlight style
+1. Show result
+
+### Code
+Install deps:
+```sh
+$ yarn add @datacamp/waffles-tokens
+```
+
+Create custom highlight style:
+```js
+import { HighlightStyle, tags as t } from '@codemirror/highlight';
+import { colors } from '@datacamp/waffles-tokens';
+
+const baseTokens = [
+  { color: colors.blueText, tag: [t.atom, t.bool] },
+  { color: colors.greenText, tag: t.comment },
+  { color: colors.redText, tag: t.invalid },
+  { color: colors.blueText, tag: t.keyword },
+  { color: colors.pinkText, tag: t.number },
+  { color: colors.pinkText, tag: t.string },
+];
+
+export const customHighlightStyle = HighlightStyle.define(baseTokens);
+```
+
+Register custom highlight style:
+```js
+import { customHighlightStyle } from './highlight';
+// ...
+export const basicSetup = [
+  // ...
+  // Replace: defaultHighlightStyle,
+  customHighlightStyle,
+];
 ```
