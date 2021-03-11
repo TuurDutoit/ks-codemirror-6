@@ -19,6 +19,8 @@ import {
   keymap,
 } from '@codemirror/view';
 
+import { uppercaseKeybinding } from './uppercase';
+
 export const basicSetup = [
   lineNumbers(),
   highlightSpecialChars(),
@@ -45,5 +47,6 @@ export const basicSetup = [
     ...completionKeymap,
     ...lintKeymap,
     defaultTabBinding,
+    uppercaseKeybinding,
   ]),
 ];

@@ -1,13 +1,12 @@
 import { javascript } from '@codemirror/lang-javascript';
 import { EditorState } from '@codemirror/state';
-import { EditorView, keymap } from '@codemirror/view';
+import { EditorView } from '@codemirror/view';
 
 import { basicSetup } from './basicSetup';
-import { uppercaseKeybinding } from './uppercase';
 
 const initialState = EditorState.create({
   doc: `function greet(name) {\n  console.log(\`Hello, \${name}\`);\n}`,
-  extensions: [basicSetup, javascript(), keymap.of([uppercaseKeybinding])],
+  extensions: [basicSetup, javascript()],
 });
 
 const view = new EditorView({

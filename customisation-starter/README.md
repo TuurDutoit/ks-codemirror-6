@@ -99,3 +99,68 @@ export const basicSetup = [
   EditorState.tabSize.of(2),
 ];
 ```
+
+## Custom keybinding
+### Steps
+1. Explain goal: Ctrl+U -> uppercase
+1. Create keybinding
+1. Create command
+    - Explain commands
+    - Explain immutable state
+    - Explain ranges
+    - Use scaffolding at first
+    - Explain `return true`
+1. Create helper
+1. Register keybinding
+
+### Code
+Create keybinding:
+```js
+export const uppercaseKeybinding = {
+  key: 'Ctrl-u',
+  run: uppercase,
+};
+```
+
+Create command:
+```js
+export function uppercase(view) {
+  const transaction = view.state.changeByRange((range) =>
+    uppercaseRange(range, view.state),
+  );
+  view.dispatch(transaction);
+
+  return true;
+}
+```
+
+Create helper:
+```js
+function uppercaseRange(range, state) {
+  const originalText = state.sliceDoc(range.from, range.to);
+  const newText = originalText.toUpperCase();
+
+  const change = {
+    from: range.from,
+    insert: newText,
+    to: range.to,
+  };
+
+  const transactionForRange = {
+    changes: change,
+    range,
+  };
+
+  return transactionForRange;
+}
+```
+
+Register keybinding:
+```js
+import { uppercaseKeybinding } from './uppercase';
+// ...
+keymap.of([
+  // ...
+  uppercaseKeybinding,
+]),
+```
