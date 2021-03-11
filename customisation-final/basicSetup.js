@@ -19,6 +19,7 @@ import {
 } from '@codemirror/view';
 
 import { customHighlightStyle } from './highlight';
+import { customTheme } from './theme';
 import { uppercaseKeybinding } from './uppercase';
 
 export const basicSetup = [
@@ -49,4 +50,5 @@ export const basicSetup = [
     defaultTabBinding,
     uppercaseKeybinding,
   ]),
+  customTheme,
 ];

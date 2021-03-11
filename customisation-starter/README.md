@@ -206,3 +206,69 @@ export const basicSetup = [
   customHighlightStyle,
 ];
 ```
+
+## Custom theme
+### Steps
+1. Use JetBrains Mono font
+    - Add font to HTML
+    - Create theme
+    - Use theme
+1. Style active line
+1. Style line numbers
+
+### Code
+Add font to HTML:
+```html
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"> 
+```
+
+Create theme:
+```js
+/* eslint-disable sort-keys-fix/sort-keys-fix */
+import { EditorView } from '@codemirror/view';
+
+export const customTheme = EditorView.theme({
+  '.cm-scroller': {
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: '14px',
+  },
+});
+```
+
+Use theme:
+```js
+import { customTheme } from './theme';
+// ... 
+export const basicSetup = [
+  // ...
+  customTheme,
+];
+```
+
+Style active line:
+```js
+import { colors } from '@datacamp/waffles-tokens';
+
+export const customTheme = EditorView.theme({
+  // ...
+  '.cm-line': {
+    border: '2px solid transparent',
+    padding: '0',
+  },
+  '.cm-activeLine': {
+    backgroundColor: colors.white,
+    borderColor: colors.grey200,
+  },
+});
+```
+
+Style line numbers:
+```js
+export const customTheme = EditorView.theme({
+  '.cm-gutters': {
+    backgroundColor: 'white',
+    borderRightColor: 'white',
+  },
+});
+```
